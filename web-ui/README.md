@@ -1,75 +1,79 @@
-# React + TypeScript + Vite
+# Light Registry - Web UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modern React-based web interface for Docker Registry, built with TypeScript, Tailwind CSS, and shadcn/ui.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📦 Browse Docker images and tags
+- 🔍 Search and filter functionality
+- 🗑️ Delete images and tags
+- 📊 View image history and details
+- 🎨 Light/Dark theme support
+- 📱 Fully responsive design
+- ⚡ Fast and modern UI with React 19
+- 🔒 Authentication support
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- **React 19** - UI framework
+- **TypeScript** - Type safety
+- **Tailwind CSS 4** - Styling with oklch colors
+- **shadcn/ui** - Component library
+- **React Router v6** - Routing
+- **Vite** - Build tool with rolldown
+- **Vitest** - Testing framework
 
-Note: This will impact Vite dev & build performances.
+## 📦 Installation
 
-## Expanding the ESLint configuration
+```bash
+# Install dependencies
+pnpm install
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Start development server
+pnpm dev
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Build for production
+pnpm build
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Preview production build
+pnpm preview
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Run tests
+pnpm test
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ Configuration
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Create a `.env` file based on `.env.example`:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+VITE_REGISTRY_URL=http://localhost:5000
+VITE_CATALOG_ELEMENTS_LIMIT=100
+VITE_USE_CONTROL_CACHE_HEADER=false
+VITE_SINGLE_REGISTRY=false
+VITE_SHOW_CONTENT_DIGEST=true
+VITE_SHOW_CATALOG_NB_TAGS=true
 ```
+
+## 🎨 Components
+
+### Core Components
+
+- **Catalog** - Browse Docker images
+- **TagList** - View image tags
+- **TagHistory** - View tag history
+- **Dialogs** - Manage registries and images
+
+## 🔧 Development
+
+```bash
+# Run development server
+pnpm dev
+
+# Linting
+pnpm lint
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read the contributing guidelines first.

@@ -1,0 +1,6 @@
+export { DialogsMenu } from './DialogsMenu'
+export { AddRegistryUrl } from './AddRegistryUrl'
+export { ChangeRegistryUrl } from './ChangeRegistryUrl'
+export { RemoveRegistryUrl } from './RemoveRegistryUrl'
+export { ConfirmDeleteImage } from './ConfirmDeleteImage'
+export { Dockerfile } from './Dockerfile'
