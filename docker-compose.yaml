@@ -1,0 +1,36 @@
+services:
+  # Docker Registry
+  registry:
+    image: distribution/distribution:3.0.0
+    container_name: light-registry
+    restart: unless-stopped
+    environment:
+      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /var/lib/registry
+      REGISTRY_STORAGE_DELETE_ENABLED: 'true'
+    volumes:
+      - registry-data:/var/lib/registry
+    networks:
+      - registry-network
+
+  # Web UI
+  web-ui:
+    build:
+      context: ./web-ui
+      dockerfile: Dockerfile
+    container_name: light-registry-ui
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      - registry
+    networks:
+      - registry-network
+
+volumes:
+  registry-data:
+    driver: local
+
+networks:
+  registry-network:
+    name: light-registry-net
+    driver: bridge
