@@ -21,6 +21,8 @@ services:
     restart: unless-stopped
     ports:
       - "3000:80"
+    environment:
+      - REGISTRY_URL=http://registry:5000
     depends_on:
       - registry
     networks:

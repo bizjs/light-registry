@@ -24,9 +24,14 @@ FROM nginx:alpine
 # Copy built files to nginx
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Copy nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copy nginx configuration template
+COPY nginx.conf.template /etc/nginx/templates/default.conf.template
+
+# Set default environment variable
+ENV REGISTRY_URL=http://registry:5000
 
 EXPOSE 80
 
+# nginx will automatically process templates in /etc/nginx/templates/
+# and substitute environment variables using envsubst
 CMD ["nginx", "-g", "daemon off;"]
